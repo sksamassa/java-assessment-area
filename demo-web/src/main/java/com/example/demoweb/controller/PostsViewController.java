@@ -16,9 +16,10 @@ import java.util.List;
 public class PostsViewController {
     @ResponseBody
     @RequestMapping(path = "/", method = RequestMethod.GET)
-    public List<Post> list(Model model) {
+    public String list(Model model) {
         model.addAttribute("appName", "Сентябрь горит");
-        return postsService.listAllPosts();
+        model.addAttribute("posts", postsService.listAllPosts());
+        return "list";
     }
 
     @ResponseBody

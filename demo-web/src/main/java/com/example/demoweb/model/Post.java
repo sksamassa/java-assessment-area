@@ -4,6 +4,12 @@ public class Post {
     private String text;
     private Integer likes;
 
+    public Post(String post, Integer likes)
+    {
+        this.text = post;
+        this.likes = likes;
+    }
+
     public Post(String text){
         this.text = text;
     }

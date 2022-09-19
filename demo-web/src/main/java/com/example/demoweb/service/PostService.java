@@ -3,19 +3,24 @@ package com.example.demoweb.service;
 import com.example.demoweb.model.Post;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 @Service
 public class PostService {
-    public List<Post> listAllPosts() {
-        List<Post> posts = new LinkedList<>();
-        Post post1 = new Post("He don't likes complicated languages with many type of data.");
-        Post post2 = new Post("Because he likes javascript.");
-        Post post3 = new Post("His favorite language is python.");
-        posts.add(post1);
-        posts.add(post2);
-        posts.add(post3);
+    Integer count = 0;
+    ArrayList<Post> posts = new ArrayList<>();
+    public void createPost(String post) {
+        long newId = 0;
+        posts.add(new Post(post, count));
+
+    }
+    public ArrayList<Post> listAllPosts() {
+        createPost("He don't likes complicated languages with many type of data.");
+        createPost("Because he likes javascript.");
+        createPost("His favorite language is python.");
 
         return posts;
     }
